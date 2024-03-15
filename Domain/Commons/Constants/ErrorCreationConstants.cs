@@ -1,4 +1,4 @@
-﻿namespace Domain.Commons.Constantes;
+﻿namespace Domain.Commons.Constants;
 
 /// <summary>
 /// Represents the exceptions and error descriptions thrown when creating Error objects
