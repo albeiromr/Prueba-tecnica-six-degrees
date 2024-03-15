@@ -1,8 +1,8 @@
 ﻿using Application.Commons.Interfaces;
-using Domain.Users;
+using Application.Users.Responses;
 
 namespace Application.Users.GetUsers;
 
 public sealed record GetUsersQuery(
     Guid rentalId
-) : IQuery<List<Usuario>>;
+) : IQuery<List<UserResponse>>;

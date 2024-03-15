@@ -1,12 +1,12 @@
 ﻿using Application.Commons.Constants;
 using Application.Commons.Interfaces;
+using Application.Users.Responses;
 using Domain.Commons.Abstractions;
-using Domain.Users;
 
 namespace Application.Users.GetUsers;
 
 
-internal sealed class GetUsersQueryHandler : IQueryHandler<GetUsersQuery, List<Usuario>>
+internal sealed class GetUsersQueryHandler : IQueryHandler<GetUsersQuery, List<UserResponse>>
 {
     private readonly IUserRepository? _userRepository;
 
@@ -15,16 +15,16 @@ internal sealed class GetUsersQueryHandler : IQueryHandler<GetUsersQuery, List<U
         _userRepository = userRepository;
     }
 
-    public async Task<Result<List<Usuario>>> Handle(GetUsersQuery request, CancellationToken cancellationToken)
+    public async Task<Result<List<UserResponse>>> Handle(GetUsersQuery request, CancellationToken cancellationToken)
     {
         try
         {
             var users = await _userRepository!.GetUsersAsync(cancellationToken);
-            return new Result<List<Usuario>>(users, true, null!);
+            return new Result<List<UserResponse>>(users, true, null!);
 
         } catch (Exception ex)
         {
-            return new Result<List<Usuario>>(default!, false, new Error(
+            return new Result<List<UserResponse>>(default!, false, new Error(
                 UsersConstants.UsersQueryError!,
                 ex.Message
             ));

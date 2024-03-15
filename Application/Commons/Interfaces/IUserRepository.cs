@@ -1,8 +1,9 @@
-﻿using Domain.Users;
+﻿using Application.Users.Responses;
+using Domain.Users;
 
 namespace Application.Commons.Interfaces;
 
 public interface IUserRepository
 {
-    Task<List<Usuario>> GetUsersAsync(CancellationToken cancellationToken = default);
+    Task<List<UserResponse>> GetUsersAsync(CancellationToken cancellationToken = default);
 }
