@@ -7,13 +7,13 @@
 /// </summary>
 public sealed class UserResponse
 {
-    public int UsuId { get; init; }
+    public int UsuID { get; init; }
     public string? Nombre { get; init; }
     public string? Apellito { get; init; }
 
     public UserResponse(int usuId, string? nombre, string? apellito)
     {
-        UsuId = usuId;
+        UsuID = usuId;
         Nombre = nombre;
         Apellito = apellito;
     }

@@ -23,7 +23,7 @@ public sealed class UserRepository : IUserRepository
         List<UserResponse> users = new List<UserResponse>();
         foreach (var user in dbUsers)
         {
-            var response = new UserResponse(user.UsuId, user.Nombre, user.Apellido);
+            var response = new UserResponse(user.UsuID, user.Nombre, user.Apellido);
             users.Add(response);
         }
 

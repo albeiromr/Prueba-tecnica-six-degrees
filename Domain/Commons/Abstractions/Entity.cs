@@ -8,7 +8,7 @@ namespace Domain.Commons.Abstractions;
 /// </summary>
 public abstract class Entity
 {
-    public int UsuId { get; init; }
+    public int UsuID { get; init; }
 
     /// <summary>
     /// This default constructor is required for creating entities configurations in the database
@@ -18,6 +18,6 @@ public abstract class Entity
 
     protected Entity(int id)
     {
-        UsuId = id;
+        UsuID = id;
     }
 }

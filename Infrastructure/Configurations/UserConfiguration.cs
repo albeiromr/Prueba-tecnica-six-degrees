@@ -12,7 +12,7 @@ internal sealed class UserConfiguration : IEntityTypeConfiguration<Usuario>
     public void Configure(EntityTypeBuilder<Usuario> builder)
     {
         builder.ToTable("Usuario");
-        builder.HasKey(user => user.UsuId);
+        builder.HasKey(user => user.UsuID);
         builder.Property(user => user.Nombre);
         builder.Property(user => user.Apellido);
     }
