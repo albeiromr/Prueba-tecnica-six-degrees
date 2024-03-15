@@ -2,7 +2,6 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 using System.Threading;
-using System;
 using Application.Users.GetUsers;
 
 namespace Web_Api.Controllers;
