@@ -1,34 +1,33 @@
-﻿using Application.Commons.Interfaces;
-using Application.Users.Responses;
-using Dapper;
+﻿using Application.Commons.Constants;
+using Application.Commons.Interfaces;
 using Domain.Commons.Abstractions;
+using Domain.Users;
 
 namespace Application.Users.GetUsers;
 
 
-internal sealed class GetUsersQueryHandler : IQueryHandler<GetUsersQuery, List<UserResponse>>
+internal sealed class GetUsersQueryHandler : IQueryHandler<GetUsersQuery, List<Usuario>>
 {
-    private readonly ISqlConnectionFactory _connectionFactory;
+    private readonly IUserRepository? _userRepository;
 
-    public GetUsersQueryHandler(ISqlConnectionFactory connectionFactory)
+    public GetUsersQueryHandler(IUserRepository? userRepository)
     {
-        _connectionFactory = connectionFactory;
+        _userRepository = userRepository;
     }
 
-    public async Task<Result<List<UserResponse>>> Handle(GetUsersQuery request, CancellationToken cancellationToken)
+    public async Task<Result<List<Usuario>>> Handle(GetUsersQuery request, CancellationToken cancellationToken)
     {
-        using var connection = _connectionFactory.CreateConnection();
+        try
+        {
+            var users = await _userRepository!.GetUsersAsync(cancellationToken);
+            return new Result<List<Usuario>>(users, true, null!);
 
-        const string sql = """
-            SELECT 
-                U.usuId AS UsuId,
-                U.nombre AS Nombre,
-                U.apellido AS Apellido
-            FROM Usuario U
-            """;
-
-        var users = await connection.QueryAsync<UserResponse>(sql);
-
-        return new Result<List<UserResponse>>(users.ToList(), true, null!);
+        } catch (Exception ex)
+        {
+            return new Result<List<Usuario>>(default!, false, new Error(
+                UsersConstants.UsersQueryError!,
+                ex.Message
+            ));
+        }
     }
 }
