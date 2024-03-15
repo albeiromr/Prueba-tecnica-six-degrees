@@ -3,6 +3,4 @@ using Application.Users.Responses;
 
 namespace Application.Users.GetUsers;
 
-public sealed record GetUsersQuery(
-    Guid rentalId
-) : IQuery<List<UserResponse>>;
+public sealed record GetUsersQuery() : IQuery<List<UserResponse>>;
