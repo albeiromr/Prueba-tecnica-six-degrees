@@ -5,4 +5,4 @@ namespace Application.Users.GetUsers;
 
 public sealed record GetUsersQuery(
     Guid rentalId
-) : IQuery<UserResponse>;
+) : IQuery<List<UserResponse>>;
