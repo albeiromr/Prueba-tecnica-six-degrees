@@ -2,16 +2,6 @@ import { Component, OnInit, inject } from '@angular/core';
 import { UserModel } from './models/user.model';
 import { AppService } from './app.service';
 
-
-
-const usersData: UserModel[] = [
-  { usuID: 1, nombre: 'Hydrogen', apellido: 'H' },
-  { usuID: 2, nombre: 'Helium', apellido: 'He' },
-  { usuID: 3, nombre: 'Lithium', apellido: 'Li' },
-  { usuID: 4, nombre: 'Beryllium', apellido: 'Be' },
-  { usuID: 5, nombre: 'Boron', apellido: 'B' },
-];
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
