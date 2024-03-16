@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import {MatTableModule} from '@angular/material/table';
+import {MatButtonModule} from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -10,7 +11,8 @@ import {MatTableModule} from '@angular/material/table';
   ],
   imports: [
     BrowserModule,
-    MatTableModule
+    MatTableModule,
+    MatButtonModule
   ],
   providers: [
     provideAnimationsAsync()
