@@ -23,17 +23,20 @@ namespace Infrastructure.Migrations
 
             modelBuilder.Entity("Domain.Users.Usuario", b =>
                 {
-                    b.Property<int>("UsuID")
+                    b.Property<decimal>("UsuID")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("numeric(18,0)")
+                        .HasColumnName("usuID");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("UsuID"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<decimal>("UsuID"));
 
                     b.Property<string>("Apellido")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("varchar(100)")
+                        .HasColumnName("apellido");
 
                     b.Property<string>("Nombre")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("varchar(100)")
+                        .HasColumnName("nombre");
 
                     b.HasKey("UsuID");
 

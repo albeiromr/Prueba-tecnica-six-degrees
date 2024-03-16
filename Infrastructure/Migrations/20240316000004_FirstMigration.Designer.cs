@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Infrastructure.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20240315230148_first")]
-    partial class first
+    [Migration("20240316000004_FirstMigration")]
+    partial class FirstMigration
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -26,17 +26,20 @@ namespace Infrastructure.Migrations
 
             modelBuilder.Entity("Domain.Users.Usuario", b =>
                 {
-                    b.Property<int>("UsuID")
+                    b.Property<decimal>("UsuID")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("numeric(18,0)")
+                        .HasColumnName("usuID");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("UsuID"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<decimal>("UsuID"));
 
                     b.Property<string>("Apellido")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("varchar(100)")
+                        .HasColumnName("apellido");
 
                     b.Property<string>("Nombre")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("varchar(100)")
+                        .HasColumnName("nombre");
 
                     b.HasKey("UsuID");
 

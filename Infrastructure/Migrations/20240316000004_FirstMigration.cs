@@ -5,7 +5,7 @@
 namespace Infrastructure.Migrations
 {
     /// <inheritdoc />
-    public partial class first : Migration
+    public partial class FirstMigration : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -14,14 +14,14 @@ namespace Infrastructure.Migrations
                 name: "Usuario",
                 columns: table => new
                 {
-                    UsuID = table.Column<int>(type: "int", nullable: false)
+                    usuID = table.Column<decimal>(type: "numeric(18,0)", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Nombre = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Apellido = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    nombre = table.Column<string>(type: "varchar(100)", nullable: true),
+                    apellido = table.Column<string>(type: "varchar(100)", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Usuario", x => x.UsuID);
+                    table.PrimaryKey("PK_Usuario", x => x.usuID);
                 });
         }
 
