@@ -4,6 +4,8 @@
 
 Se deben tener las siguientes herramientas instaladas 
 
+- una base de datos corriendo en el equipo con los requisitros de la prueba
+
 - nodejs v20.11.1 
 
 - npm v10.2.4
