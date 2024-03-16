@@ -9,12 +9,12 @@ public sealed class UserResponse
 {
     public int UsuID { get; init; }
     public string? Nombre { get; init; }
-    public string? Apellito { get; init; }
+    public string? Apellido { get; init; }
 
-    public UserResponse(int usuId, string? nombre, string? apellito)
+    public UserResponse(int usuId, string? nombre, string? apellido)
     {
         UsuID = usuId;
         Nombre = nombre;
-        Apellito = apellito;
+        Apellido = apellido;
     }
 }

@@ -3,31 +3,38 @@
 
     <h1 class="app-text">{{title}}</h1>
 
-    <button mat-raised-button color="primary" class="app-button">Buscar</button>
+    @if(dataSource.length === 0) {
+      <p>Haz click en buscar para consultar la base de datos</p>
+    }
 
-    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <button mat-raised-button color="primary" class="app-button" (click)="getData()">Buscar</button>
+
+    @if(dataSource.length !== 0){
+      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
       
-      <!-- id -->
-      <ng-container matColumnDef="usuID">
-        <th mat-header-cell *matHeaderCellDef> usuId </th>
-        <td mat-cell *matCellDef="let element"> {{element.usuID}} </td>
-      </ng-container>
+        <!-- id -->
+        <ng-container matColumnDef="usuID">
+          <th mat-header-cell *matHeaderCellDef> usuId </th>
+          <td mat-cell *matCellDef="let element"> {{element.usuID}} </td>
+        </ng-container>
+  
+        <!-- nombre -->
+        <ng-container matColumnDef="nombre">
+          <th mat-header-cell *matHeaderCellDef> Name </th>
+          <td mat-cell *matCellDef="let element"> {{element.nombre}} </td>
+        </ng-container>
+  
+        <!-- apellido -->
+        <ng-container matColumnDef="apellido">
+          <th mat-header-cell *matHeaderCellDef> Apellido </th>
+          <td mat-cell *matCellDef="let element"> {{element.apellido}} </td>
+        </ng-container>
+  
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  
+      </table>
+    }
 
-      <!-- nombre -->
-      <ng-container matColumnDef="nombre">
-        <th mat-header-cell *matHeaderCellDef> Name </th>
-        <td mat-cell *matCellDef="let element"> {{element.nombre}} </td>
-      </ng-container>
-
-      <!-- apellido -->
-      <ng-container matColumnDef="apellido">
-        <th mat-header-cell *matHeaderCellDef> Weight </th>
-        <td mat-cell *matCellDef="let element"> {{element.apellido}} </td>
-      </ng-container>
-
-      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-
-    </table>
   </div>
 </main>

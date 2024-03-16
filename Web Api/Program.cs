@@ -18,7 +18,19 @@ namespace Web_Api
             builder.Services.AddApplication();
             builder.Services.AddInfrastructure(builder.Configuration);
 
+            // adding cors set up
+            builder.Services.AddCors(options =>
+            {
+                options.AddPolicy("AllowAll", builder =>
+                    builder.AllowAnyOrigin()
+                           .AllowAnyMethod()
+                           .AllowAnyHeader());
+            });
+
             var app = builder.Build();
+
+            // adding cors set up
+            app.UseCors("AllowAll");
 
             // Configure the HTTP request pipeline.
 
