@@ -26,8 +26,8 @@ Se deben tener las siguientes herramientas instaladas
   npm install
   ```
 
-```bash
-npm run start
-```
+  ```bash
+  npm run start
+  ```
 
 - una vez los comandos se hallan ejecutado abra su navegador en el **localhost:4200**
